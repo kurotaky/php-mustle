@@ -12,10 +12,31 @@
   // 第二引数 assoc が trueの場合連想配列になる
   $parsedEpsilonList = json_decode(json_encode($xmlObject), true);
 
-  // 障害情報を取り出す
-  echo("----------------いっこめ-----------------------------------\n");
-  var_dump($parsedEpsilonList["body"]["table"][1]["tr"][1]);
-  echo("----------------にこめ-----------------------------------\n");
-  var_dump($parsedEpsilonList["body"]["table"][1]["tr"][2]);
-  echo("----------------さんこめ-----------------------------------\n");
-  var_dump($parsedEpsilonList["body"]["table"][1]["tr"][3]);
+  // 障害情報を3こ取り出す
+  echo("\n----------------1こめ-----------------------------------\n");
+  echo("発生時刻: \n");
+  echo($parsedEpsilonList["body"]["table"][1]["tr"][1]["td"][1]);
+  echo("\n\n");
+  echo("対象サービス: \n");
+  echo(str_replace("\n", "", $parsedEpsilonList["body"]["table"][1]["tr"][1]["td"][2]));
+  echo("\n\n");
+  echo("詳細: \n");
+  echo($parsedEpsilonList["body"]["table"][1]["tr"][1]["td"][3]);
+  echo("\n-------------------2こめ--------------------------------\n");
+  echo("発生時刻: \n");
+  echo($parsedEpsilonList["body"]["table"][1]["tr"][2]["td"][1]);
+  echo("\n\n");
+  echo("対象サービス: \n");
+  echo(str_replace("\n", "", $parsedEpsilonList["body"]["table"][1]["tr"][2]["td"][2]));
+  echo("\n\n");
+  echo("詳細: \n");
+  echo($parsedEpsilonList["body"]["table"][1]["tr"][2]["td"][3]);
+  echo("\n-------------------3こめ--------------------------------\n");
+  echo("発生時刻: \n");
+  echo($parsedEpsilonList["body"]["table"][1]["tr"][3]["td"][1]);
+  echo("\n\n");
+  echo("対象サービス: \n");
+  echo(str_replace("\n", "", $parsedEpsilonList["body"]["table"][1]["tr"][3]["td"][2]));
+  echo("\n\n");
+  echo("詳細: \n");
+  echo($parsedEpsilonList["body"]["table"][1]["tr"][3]["td"][3]);
